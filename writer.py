@@ -4,7 +4,7 @@ import os
 def domain2str(F, A):
     header = '(define (domain {domain_name})\n{domain_body})'
     requirements = '(:requirements :adl)\n'
-    predicates_str = '(:predicates \n{})\n'
+    predicates_str = '(:predicates \n{}) (:functions (total-cost))\n'
     actions = ''
     predicates = ''
     for atom in F:
@@ -20,7 +20,7 @@ def domain2str(F, A):
 def problem2str(I, G):
     header = '(define (problem {problem_name})\n(:domain {domain_name})\n{problem_body})'
     init_facts = '(:init \n{})\n'
-    goal = '(:goal {})\n'.format(str(G))
+    goal = '(:goal {})   (:metric minimize (total-cost))\n'.format(str(G))
     init = ''
     for atom in I:
         init += '\t{}\n'.format(str(atom))
