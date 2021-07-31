@@ -101,6 +101,8 @@ class Literal:
 
     def simplified(self):
         return Literal(self.literal, self.negated)
+    def __hash__(self) -> int:
+        return hash(self.__str__())
 
 
 class TRUE:

@@ -3,7 +3,7 @@ import os
 
 def domain2str(F, A):
     header = '(define (domain {domain_name})\n{domain_body})'
-    requirements = '(:requirements :adl)\n'
+    requirements = ';(:requirements :adl)\n'
     predicates_str = '(:predicates \n{}) (:functions (total-cost))\n'
     actions = ''
     predicates = ''
